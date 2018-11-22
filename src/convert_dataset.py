@@ -69,8 +69,8 @@ def create_tf_example(example):
 
         xmins.append(float(xmin[i]) / width)
         xmaxs.append(float(xmax[i]) / width)
-        ymins.append(float(ymin[i]) / width)
-        ymaxs.append(float(ymax[i]) / width)
+        ymins.append(float(ymin[i]) / height)
+        ymaxs.append(float(ymax[i]) / height)
         classes_text.append('Text'.encode('utf-8'))
         classes.append(1)
 

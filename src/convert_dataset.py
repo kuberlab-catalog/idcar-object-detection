@@ -71,7 +71,7 @@ def create_tf_example(example):
         xmaxs.append(float(xmax[i]) / width)
         ymins.append(float(ymin[i]) / width)
         ymaxs.append(float(ymax[i]) / width)
-        classes_text.append('Text')
+        classes_text.append('Text'.encode('utf-8'))
         classes.append(1)
 
     tf_example = tf.train.Example(features=tf.train.Features(feature={

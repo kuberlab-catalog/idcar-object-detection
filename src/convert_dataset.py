@@ -116,9 +116,12 @@ def write_record(image_dir, label_dir, output_file):
             'label_filename': label_path,
         }
 
-        tf_example = create_tf_example(example_dict)
-        writer.write(tf_example.SerializeToString())
-        added += 1
+        try:
+            tf_example = create_tf_example(example_dict)
+            writer.write(tf_example.SerializeToString())
+            added += 1
+        except Exception as e:
+            tf.logging.warning('Skip: {}'.format(str(e)))
 
     tf.logging.info('Successfully added {} images to dataset.'.format(added))
     tf.logging.info('Writing to {}.'.format(output_file))
